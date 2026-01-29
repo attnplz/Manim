@@ -17,7 +17,7 @@ Changing Color and Surfaces
 
 
 ## Creating a Rectangle
-![](001.png)
+![](images/001.png)
 
 ```py
 class CreateRectangle(Scene):
@@ -32,7 +32,7 @@ class CreateRectangle(Scene):
 
 ---
 ## Shifting Objects on the screen
-![](002.png)
+![](images/002.png)
 
 ```py
 class CreateRectangle(Scene):
