@@ -1,5 +1,6 @@
 # Examples
 ## Example 1
+![](images/003.png)
 ```py
 class Example_1(Scene):
   def construct(self):
@@ -24,6 +25,7 @@ Adds to scene — ```self.add(circles)``` renders all circles on screen.
 Wait duration — ```self.wait(5)``` holds the animation for 5 seconds.
 
 ## Example 2
+![](images/004.png)
 ```py
 class Example_2(Scene):
   def construct(self):
@@ -45,6 +47,7 @@ Renders all three — self.add(rect_1,rect_2,rect_3) displays them on screen
 This example demonstrates object positioning and the next_to() method for relative placement. Unlike Example 1 which uses .arrange() for automatic spacing, this shows manual positioning with explicit direction (RIGHT).
 
 ## Example 3
+![](images/004.png)
 ```py
 class Example_3(Scene):
   def construct(self):
@@ -77,6 +80,7 @@ Animations:
 
 This example shows core Manim animation techniques: object transformations, shape morphing with ```Transform()```, and fade effects. The commented-out ```self.add(square)``` suggests testing static display before applying animations.
 ## Example 4
+![](images/005.png)
 ```py
 class Example_4(Scene):
   def construct(self):
@@ -110,6 +114,7 @@ Animation sequence:
 ```self.wait(2)``` — 2 second pause at the end
 This example shows how to create introductory text animations, run multiple animations simultaneously, and use ReplacementTransform() to smoothly transition between text objects.
 ## Example 5
+![](images/006.png)
 ```py
 class Example_5(Scene):
   def construct(self):
