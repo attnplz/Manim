@@ -1,4 +1,5 @@
 # Calculus Area
+![](images/001.png)
 ```py
 from manim import *
 

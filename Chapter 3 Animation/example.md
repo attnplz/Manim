@@ -1,5 +1,6 @@
 # Animation Chapter
 ## Animation 1
+
 ```py
 class Animation1(Scene):
     def construct(self):
