@@ -1,6 +1,6 @@
 # Animation Chapter
 ## Animation 1
-
+![](images/004.png)
 ```py
 class Animation1(Scene):
     def construct(self):
@@ -12,6 +12,7 @@ class Animation1(Scene):
 ```
 ---
 ## Animation 2
+![](images/003.png)
 ### Create a circle
 ```py
 class Animation2(Scene):
