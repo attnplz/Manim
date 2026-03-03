@@ -197,6 +197,67 @@ class Test(Scene):
     self.wait(3)
 ```
 ---
-### Value Tracker
+## Value Tracker
+```py
+from manim import *
 
+class Test(Scene):
+  def construct(self):
+    t1 = ValueTracker(10)
+    number = always_redraw(lambda: DecimalNumber(t1.get_value(), num_decimal_places=0))
+    # number = DecimalNumber(t1.get_value(), num_decimal_places=0)
+    # number2 = DecimalNumber(30, num_decimal_places=0)
+    
+    # self.play(Write(number))
+    # self.play(Transform(number, number2))
+    self.play(Write(number))
+    self.play(t1.animate.set_value(30), run_time=5, rate_functions = rate_functions.smooth)
+    self.wait(3)
+```
+---
+## Axes 1
+```py
+from manim import *
 
+class Axes1(Scene):
+  def construct(self):
+    axes = Axes(x_range=(-20, 20), y_range=(-15, 15)).add_coordinates()
+    tri = Triangle().scale(0.3)
+    tri.move_to(axes.c2p(-7,10))
+    self.play(Write(axes))
+    self.play(Write(tri))
+    self.wait()
+    
+    dot = Dot(color=RED)
+    self.play(Create(dot))
+    self.play(dot.animate.move_to(axes.c2p(7,-10)))
+    # dot.move_to(axes.c2p(7,-10))
+    self.wait(3)
+```
+---
+## Axes 2
+```py
+from manim import *
+
+class Test(Scene):
+  def construct(self):
+    axes = Axes(x_range=(-3, 10), y_range=(-1, 10), x_length=13, y_length=5, tips=False).add_coordinates().set_color(BLUE)
+    x = axes.get_x_axis_label("x")
+    y = axes.get_y_axis_label("y")
+    
+    self.play(Write(axes),Write(x),Write(y))
+    
+    dot = Dot(color=RED).move_to(axes.c2p(3,1))
+    dot_label = always_redraw(lambda: Text("Dot",font_size=24).next_to(dot,UP))
+    
+    self.play(Write(dot_label),Write(dot))
+    self.play(dot.animate.move_to(axes.c2p(9,6)), run_time=3)
+    
+    dot_label.clear_updaters()
+    
+    group = VGroup(axes, x, y, dot,dot_label)
+    self.play(group.animate.scale(0.3).to_edge(UL))
+    
+    self.wait(3)
+```
+---

@@ -1,2 +1,0 @@
-# Animation Chapter 2
-## 
