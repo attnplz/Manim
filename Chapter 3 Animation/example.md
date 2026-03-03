@@ -300,3 +300,31 @@ class Test(Scene):
     
     self.wait(3)
 ```
+---
+## Axes 5
+```py
+from manim import *
+import numpy as np
+
+class Test(Scene):
+  def construct(self):
+    x = ValueTracker(7)
+    
+    # axes = Axes(x_range=(-8, 8), y_range=(-1, 1), x_length=x.get_value(), y_length=3, tips=False).add_coordinates()
+    axes = always_redraw(lambda: Axes(x_range=(-8, 8), y_range=(-1, 1), x_length=x.get_value(), y_length=3, tips=False).add_coordinates())
+    
+    self.play(Write(axes))
+    
+    num = ValueTracker(1)
+    
+    # curve = axes.plot(lambda x: np.sin(x), color=RED)
+    curve = always_redraw(lambda: axes.plot(lambda x: np.sin(num.get_value()*x), color=RED))
+    
+    self.play(Create(curve))
+    self.play(x.animate.set_value(30), run_time=3)
+    self.wait()
+    self.play(num.animate.set_value(10), run_time=2)
+    self.wait()
+    self.play(x.animate.set_value(5), run_time=3)
+    self.wait(3)
+```
