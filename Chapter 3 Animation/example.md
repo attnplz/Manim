@@ -261,3 +261,42 @@ class Test(Scene):
     self.wait(3)
 ```
 ---
+## Axes 3
+```py
+from manim import *
+import numpy as np
+
+class Test(Scene):
+  def construct(self):
+    dog = Axes(x_range=(-8, 8), y_range=(-1.5, 1.5), x_length=13, y_length=3, tips=False)
+    x_lab = dog.get_x_axis_label("X axis")
+    y_lab = dog.get_y_axis_label("Y axis")
+    
+    self.play(Write(dog),Write(x_lab),Write(y_lab))
+    
+    curve = dog.plot(lambda x: np.cos(x), x_range=[-8, 8], color=RED)
+    self.play(Write(curve))
+    
+    self.wait(3)
+```
+## Axes 4
+```py
+import numpy as np
+
+class Test(Scene):
+  def construct(self):
+    dog = Axes(x_range=(-4, 4), y_range=(0, 16), x_length=5, y_length=6.5, tips=False).add_coordinates()
+    x_lab = dog.get_x_axis_label("x")
+    y_lab = dog.get_y_axis_label("y")
+    
+    self.play(Write(dog),Write(x_lab),Write(y_lab))
+    
+    number = ValueTracker(1)
+    
+    curve = always_redraw(lambda: dog.plot(lambda x: number.get_value()*x*x, color=RED))
+    self.play(Create(curve))
+    self.play(number.animate.set_value(2), run_time=2)
+    self.play(number.animate.set_value(0.5), run_time=2)
+    
+    self.wait(3)
+```
