@@ -328,3 +328,19 @@ class Test(Scene):
     self.play(x.animate.set_value(5), run_time=3)
     self.wait(3)
 ```
+---
+## Transform matching shape
+```py
+from manim import *
+
+class Test(Scene):
+  def construct(self):
+    a = Text("Baloon")
+    b = Text("This is my first day at work")
+    
+    self.play(Write(a))
+    
+    self.play(TransformMatchingShapes(a, b),run_time = 3)
+    
+    self.wait(2)
+---
