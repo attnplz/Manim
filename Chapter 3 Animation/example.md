@@ -402,5 +402,5 @@ class Test(Scene):
     self.play(dot.animate.scale(300))
     self.play(dot.animate.set_color(BLACK))
 
-    self.wait(3)
+    self.wait(2)
 ```
